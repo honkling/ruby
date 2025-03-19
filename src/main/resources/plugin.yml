@@ -1,0 +1,19 @@
+name: Ruby
+version: '${version}'
+main: me.honkling.ruby.Ruby
+api-version: '1.21'
+prefix: Ruby
+authors: [ honkling ]
+description: a lil punishment plugin
+website: https://github.com/honkling/ruby
+depend: [LuckPerms]
+commands:
+  punish:
+    description: Punish players.
+    permission: ruby.punish
+    aliases: [p]
+    usage: /punish (player) [short] [...notes]
+  punishments:
+    description: View your punishments.
+    aliases: [puns]
+    usage: /punishments [player]

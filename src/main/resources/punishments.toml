@@ -1,0 +1,115 @@
+scale = ["1d", "3d", "1w", "2w", "1mo", "3mo", "6mo"]
+
+[reasons.spam]
+name = "Spam"
+description = "Sending many or large messages in chat"
+type = "Mute"
+duration = 0
+
+[reasons.trolling]
+name = "Trolling"
+description = "Making an intentional effort to upset others"
+type = "Mute"
+duration = 2
+
+[reasons.nsfw]
+name = "Gross Behavior"
+description = "Speaking inappropriately or of inappropriate topics"
+type = "Mute"
+duration = 1
+
+[reasons.filter]
+name = "Bypassing Filter"
+description = "Attempting to bypass the chat filter"
+type = "Mute"
+duration = 1
+
+[reasons.encouraging-bad-behavior]
+name = "Encouraging Bad Behavior"
+description = "Encouraging others to partake in activity that breaks the rules"
+type = "Mute"
+duration = 1
+
+[reasons.self-harm]
+name = "Wishing Harm"
+description = "Wishing death/injury upon others, or encouraging others to hurt themselves"
+type = "Ban"
+duration = 7
+
+[reasons.instigating]
+name = "Instigating Arguments"
+description = "Repeatedly trying to instill arguments or drama with others"
+type = "Mute"
+duration = 3
+
+[reasons.predation]
+name = "Predatory Behavior"
+description = "Being predatory or acting inappropriately"
+type = "Ban"
+duration = 7
+
+[reasons.threats]
+name = "Threatening Others"
+description = "Making threats against other people"
+type = "Ban"
+duration = 7
+
+[reasons.harassment]
+name = "Harassment"
+description = "Harassing / bullying other people"
+type = "Ban"
+duration = 7
+
+[reasons.evasion]
+name = "Evading Punishments"
+description = "Using other accounts to evade punishments"
+type = "Ban"
+duration = 7
+
+[reasons.personal-info]
+name = "Releasing Personal Information"
+description = "Releasing personal information of yourself or other people"
+type = "Ban"
+duration = 7
+
+[reasons.malice]
+name = "Malice"
+description = "Being malicious by sending suspicious links, downloads, etc."
+type = "Ban"
+duration = 7
+
+[reasons.disrespect]
+name = "Disrespect"
+description = "Being disrespectful to other players"
+type = "Mute"
+duration = 1
+
+[reasons.discrimination]
+name = "Discrimination"
+description = "Being discriminatory or using discriminatory language"
+type = "Ban"
+duration = 7
+
+[reasons.exploits]
+name = "Abusing Exploits"
+description = "Using bugs/glitches/exploits to your advantage instead of responsibly reporting them"
+type = "Ban"
+duration = 2
+
+[reasons.community-disruption]
+name = "Community Disruption"
+description = "Being disruptful to the community / providing negative value"
+type = "Ban"
+duration = 7
+
+[reasons.impersonation]
+name = "Impersonation"
+description = "Impersonating other people"
+type = "Ban"
+duration = 7
+
+[reasons.misinformation]
+name = "Misinformation"
+description = "Deliberately spreading false information"
+type = "Mute"
+duration = 1
