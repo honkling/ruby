@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly("net.luckperms:api:5.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
     implementation("com.github.honkling:commonlib:9742e51e7d")
@@ -49,6 +49,10 @@ tasks.jar {
     manifest {
         attributes["paperweight-mappings-namespace"] = "mojang"
     }
+}
+
+tasks.shadowJar {
+    relocate("kotlin", "me.honkling.ruby.dependencies.kotlin")
 }
 
 publishing {

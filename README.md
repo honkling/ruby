@@ -1,6 +1,6 @@
 # ruby
 
-a punishment plugin for paper 1.21.1<br />
+a punishment plugin for paper 1.21<br />
 it probably works on older and newer versions. not tested.
 
 this plugin was built specifically for my own project(s) and

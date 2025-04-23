@@ -5,6 +5,7 @@ import me.honkling.ruby.lib.clampToLength
 import net.kyori.adventure.audience.Audience
 import net.kyori.adventure.inventory.Book
 import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.TextComponent
 import net.kyori.adventure.text.event.ClickEvent
 import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.OfflinePlayer
@@ -80,7 +81,7 @@ fun punishmentInfoBook(player: Player, target: OfflinePlayer, punishment: Punish
             punishmentBook(player, target, isModerator)
         }))
 
-    val pages = mutableListOf(firstPage)
+    val pages: MutableList<Component> = mutableListOf(firstPage)
 
     if (isModerator && punishment.notes.isNotBlank())
         pages += Component.empty()

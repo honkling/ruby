@@ -3,6 +3,7 @@ package me.honkling.ruby.punishment
 import me.honkling.ruby.config.legacy
 import me.honkling.ruby.config.punishmentsToml
 import me.honkling.ruby.database.prepare
+import me.honkling.ruby.event.PunishmentRepealEvent
 import me.honkling.ruby.lib.mm
 import me.honkling.ruby.lib.toByteArray
 import net.kyori.adventure.audience.Audience
@@ -51,6 +52,12 @@ data class Punishment(
     )
 
     fun repeal(moderator: CommandSender) {
+        val event = PunishmentRepealEvent(moderator, this)
+        Bukkit.getPluginManager().callEvent(event)
+
+        if (event.isCancelled)
+            return
+
         val audience = Audience.audience(Bukkit.getOnlinePlayers()
             .filter { it.hasPermission("ruby.punish") })
 

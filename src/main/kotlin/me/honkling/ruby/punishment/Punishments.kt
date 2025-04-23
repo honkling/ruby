@@ -3,6 +3,7 @@ package me.honkling.ruby.punishment
 import me.honkling.ruby.config.PunishmentsToml
 import me.honkling.ruby.config.punishmentsToml
 import me.honkling.ruby.database.prepare
+import me.honkling.ruby.event.PunishmentIssueEvent
 import me.honkling.ruby.instance
 import me.honkling.ruby.lib.mm
 import me.honkling.ruby.lib.toByteArray
@@ -35,6 +36,13 @@ fun issuePunishment(
     if (punishments.any { reason.type == it.reason.type && it.isActive })
         return Result.failure(IllegalStateException("That player already has an active punishment."))
 
+    val punishment = Punishment(id, target, moderator, short, duration ?: Duration.ZERO, now, false, notes)
+    val event = PunishmentIssueEvent(punishment)
+    Bukkit.getPluginManager().callEvent(event)
+
+    if (event.isCancelled)
+        return Result.failure(IllegalStateException("Punishment was cancelled by another plugin."))
+
     val displayDuration = if (reason.type.hasDuration && duration != null) " (${duration.toString().replace("Infinity", "permanent")})" else ""
     val audience = Audience.audience(Bukkit.getOnlinePlayers()
         .filter { it.hasPermission("ruby.punish") })
@@ -56,7 +64,6 @@ fun issuePunishment(
     ).execute()
 
     instance.punishmentCounts[reason] = (instance.punishmentCounts[reason] ?: 0) + 1
-    val punishment = Punishment(id, target, moderator, short, duration ?: Duration.ZERO, now, false, notes)
     punishments += punishment
 
     if (target is Player)
