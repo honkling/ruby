@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "me.honkling"
-version = "0.1.1"
+version = "0.1.2"
 
 repositories {
     mavenCentral()
@@ -49,10 +49,6 @@ tasks.jar {
     manifest {
         attributes["paperweight-mappings-namespace"] = "mojang"
     }
-}
-
-tasks.shadowJar {
-    relocate("kotlin", "me.honkling.ruby.dependencies.kotlin")
 }
 
 publishing {
